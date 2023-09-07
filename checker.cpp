@@ -3,7 +3,7 @@
 #include <unistd.h>
 using namespace std;
 
-void printCriticalMessage(string message) {
+void PrintCriticalMessage(string message) {
     cout << message << endl;
     for (int i = 0; i < 6; i++)
     {
@@ -28,10 +28,10 @@ bool isTemperatureWarning(float temperature) {
 bool checkTemperature(float temperature) {
 
     if (isTemperatureWarning(temperature)) {
-        printWarningMessage();
+        PrintWarningMessage();
     }
     else if (istemperatureCritical(temperature)) {
-        printCriticalMessage("Temperature critical!");
+        PrintCriticalMessage("Temperature critical!");
         return false;
     }
     return true;
@@ -50,10 +50,10 @@ bool ispulseRateWarning(float pulseRate)
 bool checkPulseRate(float pulseRate) {
     
     if (ispulseRateWarning(pulseRate)) {
-        printWarningMessage();
+        PrintWarningMessage();
     }
     else if (ispulseRateCritical(pulseRate)) {
-        printCriticalMessage("Pulse Rate is out of range!");
+        PrintCriticalMessage("Pulse Rate is out of range!");
         return false;
     }
     return true;
@@ -62,11 +62,11 @@ bool checkPulseRate(float pulseRate) {
 bool checkSpo2(float spo2) {
     float warningTolerance = 90 * 0.015;
     if (spo2 < 90) {
-        printCriticalMessage("Oxygen Saturation out of range!");
+        PrintCriticalMessage("Oxygen Saturation out of range!");
         return false;
     }
     else if (spo2 <= 90 - warningTolerance) {
-        printWarningMessage();
+        PrintWarningMessage();
     }
     return true;
 }
