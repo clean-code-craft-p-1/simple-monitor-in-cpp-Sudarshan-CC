@@ -3,6 +3,28 @@
 #include <unistd.h>
 using namespace std;
 
+void printCriticalMessage(string message) {
+    cout << message << endl;
+    for (int i = 0; i < 6; i++)
+    {
+        cout << "\r* " << flush;
+        sleep(1);
+        cout << "\r *" << flush;
+        sleep(1);
+    }
+}
+
+void PrintWarningMessage(){
+  cout <<"Approaching hypothermia" <<endl;
+}
+bool istemperatureCritical(float temperature){
+    return temperature > 102 || temperature < 95;
+}
+bool isTemperatureWarning(float temperature) {
+    float warningTolerance = 102 * 0.015;
+    return temperature >= 102 - warningTolerance || temperature <= 95 + warningTolerance;
+}
+
 int vitalsOk(float temperature, float pulseRate, float spo2) {
   if(temperature > 102 || temperature < 95) {
     cout << "Temperature critical!\n";
