@@ -80,7 +80,7 @@ int main() {
   assert(vitalsOk(98.1, 70, 98));
   assert(!vitalsOk(103,72,95));
   assert(!vitalsOk(94,72,95));
-  assert(!vitalsOk(98.5,72,60));
+  assert(!vitalsOk(98.5,72,90));
     
   cout << "Done\n";
 }
